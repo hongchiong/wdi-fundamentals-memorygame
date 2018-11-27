@@ -21,6 +21,15 @@ var cards = [
   }
 ];
 
+function shuffle(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
 var cardsInPlay = [];
 var streak = 0;
 
@@ -45,15 +54,13 @@ function flipCard() {
   var cardId = this.getAttribute('data-id');
   cardsInPlay.push(cards[cardId].rank);
   this.setAttribute('src', cards[cardId].cardImage);
-  console.log("User flipped " + cards[cardId].rank);
-  console.log(cards[cardId].suit);
-  console.log(cards[cardId].cardImage);
   if (cardsInPlay.length === 2) {
     checkForMatch();
   };
 }
 
 function createBoard() {
+  shuffle(cards);
   for (var i = 0; i < cards.length; i++) {
     var cardElement = document.createElement('img');
     cardElement.setAttribute('src', 'images/back.png');
@@ -64,6 +71,7 @@ function createBoard() {
 }
 
 function resetBoard() {
+  shuffle(cards);
   for (var i = 0; i < cards.length; i++) {
     var board = document.getElementById('game-board');
     var boardCards = board.getElementsByTagName('img');

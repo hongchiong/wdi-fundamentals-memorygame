@@ -28,10 +28,12 @@ function checkForMatch() {
   if (cardsInPlay[0] === cardsInPlay[1]) {
     streak += 1;
     cardsInPlay = [];
+    document.getElementById("streak").innerHTML = `🔥 ${streak} !!!`;
     resetBoard();
   } else {
     streak = 0;
     cardsInPlay = [];
+    document.getElementById("streak").innerHTML = `🔥 ${streak} !!!`;
     resetBoard();
 //     alert("You found a match!");
 //   } else {

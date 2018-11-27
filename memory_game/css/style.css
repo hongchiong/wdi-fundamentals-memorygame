@@ -98,3 +98,10 @@ footer {
   color: #F15B31;
   font-weight: 700;
 }
+
+#streak {
+    color: #f46542;
+    font-weight: 800;
+    font-size: 24px;
+    font-family: Raleway;
+}
